@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mayilmaz <mayilmaz@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/14 21:38:54 by mayilmaz          #+#    #+#             */
-/*   Updated: 2024/11/20 15:14:41 by mayilmaz         ###   ########.fr       */
+/*   Created: 2024/11/20 15:14:50 by mayilmaz          #+#    #+#             */
+/*   Updated: 2024/11/20 15:34:38 by mayilmaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 #include <stdlib.h>
 #include <unistd.h>
 
@@ -86,15 +86,15 @@ char	*ft_alloc(int fd, char *buff)
 
 char	*get_next_line(int fd)
 {
-	static char	*buff;
+	static char	*buff[4096];
 	char		*src;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
-		return (free(buff), buff = NULL, NULL);
-	buff = ft_alloc(fd, buff);
-	if (!buff || !(*buff))
-		return (free(buff), buff = NULL, NULL);
-	src = ft_first_part(buff);
-	buff = ft_last_part(buff);
+		return (free(buff[fd]), buff[fd] = NULL, NULL);
+	buff[fd] = ft_alloc(fd, buff[fd]);
+	if (!buff[fd])
+		return (free(buff[fd]), buff[fd] = NULL, NULL);
+	src = ft_first_part(buff[fd]);
+	buff[fd] = ft_last_part(buff[fd]);
 	return (src);
 }
