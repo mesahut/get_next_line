@@ -6,7 +6,7 @@
 /*   By: mayilmaz <mayilmaz@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 21:38:54 by mayilmaz          #+#    #+#             */
-/*   Updated: 2024/11/20 15:14:41 by mayilmaz         ###   ########.fr       */
+/*   Updated: 2024/11/22 14:47:44 by mayilmaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ char	*get_next_line(int fd)
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (free(buff), buff = NULL, NULL);
 	buff = ft_alloc(fd, buff);
-	if (!buff || !(*buff))
+	if (!buff)
 		return (free(buff), buff = NULL, NULL);
 	src = ft_first_part(buff);
 	buff = ft_last_part(buff);

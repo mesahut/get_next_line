@@ -6,7 +6,7 @@
 /*   By: mayilmaz <mayilmaz@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 15:14:50 by mayilmaz          #+#    #+#             */
-/*   Updated: 2024/11/20 15:34:38 by mayilmaz         ###   ########.fr       */
+/*   Updated: 2024/11/22 13:55:18 by mayilmaz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ char	*ft_alloc(int fd, char *buff)
 
 char	*get_next_line(int fd)
 {
-	static char	*buff[4096];
+	static char	*buff[2048];
 	char		*src;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
